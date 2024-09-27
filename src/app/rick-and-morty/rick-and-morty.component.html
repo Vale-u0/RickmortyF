@@ -1,0 +1,14 @@
+<div *ngFor="let character of characters" class="character-card" (click)="onCharacterClick(character)">
+  <h2>{{ character.name }}</h2>
+  <img [src]="character.image" alt="{{ character.name }}">
+  <p>Status: {{ character.status }}</p>
+  <p>Species: {{ character.species }}</p>
+  <p>Origin: {{ character.origin.name }}</p>
+
+  <!-- Lista de episodios (se muestra si el personaje ha sido seleccionado) -->
+  <ul *ngIf="selectedCharacterId === character.id">
+    <li *ngFor="let episode of characterEpisodes">
+      {{ episode.name }}
+    </li>
+  </ul>
+</div>
